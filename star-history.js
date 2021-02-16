@@ -3,19 +3,21 @@
 // @namespace    https://juzibiji.top/
 // @icon         https://cdn.juzibiji.top/img/20210216143815.png
 // @supportURL   https://github.com/juzi214032/tampermonkye-scripts/issues
-// @updateURL    https://github.com/juzi214032/tampermonkye-scripts/raw/main/star-history.js
-// @downloadURL  https://github.com/juzi214032/tampermonkye-scripts/raw/main/star-history.js
-// @version      1.0.1
+// @version      1.0.2
 // @description  在 Github 网站顶部显示 star-history 按钮，star-history 是一个统计项目 Star 走势图的网站
 // @author       桔子
 // @match        https://github.com/*
 // @grant        none
 // @require      https://greasyfork.org/scripts/421765-%E8%8E%B7%E5%8F%96-github-%E5%BD%93%E5%89%8D%E4%BB%93%E5%BA%93%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86/code/%E8%8E%B7%E5%8F%96%20Github%20%E5%BD%93%E5%89%8D%E4%BB%93%E5%BA%93%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86.js?version=901113
+// @require      https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js
 // ==/UserScript==
 
 (function () {
     'use strict';
-    setInterval(createButton, 1000);
+    createButton();
+    $(document).on("pjax:end", ()=>{
+        createButton();
+    });
 })();
 
 /**
