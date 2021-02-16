@@ -2,26 +2,27 @@
 // @name         显示 Github1s 按钮
 // @icon         https://cdn.juzibiji.top/imggithub.png
 // @namespace    https://juzibiji.top/
-// @version      1.0.0
+// @version      1.0.1
 // @supportURL   https://github.com/juzi214032/tampermonkye-scripts/issues
-// @updateURL    https://github.com/juzi214032/tampermonkye-scripts/raw/main/github1s.js
-// @downloadURL  https://github.com/juzi214032/tampermonkye-scripts/raw/main/github1s.js
 // @description  在 Github 网站顶部显示 Github1s 按钮，Github1s 是一个利用 VsCode Online 浏览代码的项目
 // @author       桔子
 // @match        https://github.com/*
 // @grant        none
+// @require      https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js
 // ==/UserScript==
 
 (function () {
     'use strict';
-    setInterval(createButton, 1000);
+    createButton();
+    $(document).on("pjax:end", ()=>{
+        createButton();
+    });
 })();
 
 /**
  * 创建 Github1s 按钮
  */
 function createButton() {
-
     const preSelectorButton = document
         .querySelector("#github1sButton");
 
